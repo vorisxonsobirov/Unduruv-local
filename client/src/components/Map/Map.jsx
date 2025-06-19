@@ -195,7 +195,7 @@ function MapViewer() {
           )}
         </MapContainer>
       ) : (
-        <p>We determine the location...</p>
+        <p>Please allow access to your location</p>
       )}
       <div className="button-container">
         <button className="button" onClick={addManualMarker}>Put a mark</button>

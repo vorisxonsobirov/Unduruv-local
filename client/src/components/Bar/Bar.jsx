@@ -23,7 +23,7 @@ const Bar = ({ isOpen, onClose }) => {
 
   return (
     <div ref={barRef} className={`Bar ${isOpen ? 'open' : 'closed'}`}>
-      <Link to="/">Profile</Link>
+      <Link to="/">Debtors list</Link>
       <Link to="/Map">Map</Link>
     </div>
   );

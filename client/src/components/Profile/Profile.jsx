@@ -53,6 +53,7 @@ useEffect(() => {
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
     );
+// const totalDebt = allDebtors.reduce((sum, d) => sum + (d.contracts?.[0]?.debt || 0), 0);
 
     return (
       <div className="profile-container">
@@ -121,6 +122,7 @@ useEffect(() => {
             }
             disabled={currentPage === totalPages}
           >
+            
             Next
           </button>
         </div>
