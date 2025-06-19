@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/proxy",
+      "destination": "http://nasiya.mxsoft.uz/demo_nasiya/hs/GPScontrol/apigps/getdebtors?page=1&count=500&branch_id=1"
+    }
+  ]
+}

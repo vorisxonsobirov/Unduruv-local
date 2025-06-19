@@ -1,0 +1,57 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  background-color: rgb(248,250,255);
+  /* max-width: 1920px;
+  width: 100%; */
+  /* margin: 0 auto; */
+}
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+ .main-layout {
+  display: flex;
+  align-items: start;
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+} 
+
+
+
+
+.Navbar{
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255,255,255);
+  border-bottom:  1px solid #ffffffaf;
+  color: rgba(0, 0, 0, 0.534);
+  width: 100%;
+}
+
+.Bar{
+    padding: 10px 20px;
+    background-color: rgb(255,255,255);
+    color: rgba(0, 0, 0, 0.534);
+    height: 92vh;
+}
+/* .Main{
+    grid-area: Main ;
+    padding: 10px 20px;
+    background-color: #282c3465;
+    color: white;
+} */
+
