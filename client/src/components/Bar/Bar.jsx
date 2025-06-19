@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import "./bar.css";
+import './bar.css';
 
-const Bar = ({ isOpen }) => {
+const Bar = ({ isOpen, onClose }) => {
+  const barRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (barRef.current && !barRef.current.contains(event.target)) {
+        onClose(); // Закрываем при клике вне бара
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
   return (
-    <div className={`Bar ${isOpen ? 'open' : 'closed'}`}>
+    <div ref={barRef} className={`Bar ${isOpen ? 'open' : 'closed'}`}>
       <Link to="/">Profile</Link>
       <Link to="/Map">Map</Link>
     </div>

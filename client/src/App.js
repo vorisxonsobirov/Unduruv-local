@@ -20,6 +20,18 @@ function App() {
     }
   }, []);
 
+
+  const isMobile = window.innerWidth < 768;
+
+  // Показываем Бар:
+  {
+    isMobile ? (
+      <Bar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+    ) : (
+      <Bar isOpen={true} onClose={() => { }} />
+    )
+  }
+
   const handleAuthSuccess = (email, password) => {
     localStorage.setItem('email', email);
     localStorage.setItem('password', password);
@@ -44,7 +56,9 @@ function App() {
     <div className="App">
       <Navbar onLogout={handleLogout} toggleSidebar={toggleSidebar} />
       <div className="main-layout">
-        <Bar isOpen={sidebarOpen} />
+        <Bar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+
         <div className="page-content">
           <Routes>
             <Route path="/" element={<Profile />} />
