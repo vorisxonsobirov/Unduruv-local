@@ -1,21 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import "./bar.css"
+import "./bar.css";
 
-const Bar = () => {
+const Bar = ({ isOpen }) => {
   return (
-    <div className='Bar'>
-     <a href=""><Link to="/">  Profile</Link>  </a> 
-     <a href=""><Link to="/Map"> Map </Link> </a>
-     {/* <a href=""><Link to="/KursValyut"> Kurs valyut </Link> </a>
-     <a href=""><Link to="/Xabarlar"> Xabarlar</Link> </a>
-     <a href=""><Link to="/Tulovlar"> Tulovlar </Link> </a>
-     <a href=""><Link to="/Kontragentlar"> Kontragentlar </Link> </a> */}
-      
-      
-      
+    <div className={`Bar ${isOpen ? 'open' : 'closed'}`}>
+      <Link to="/">Profile</Link>
+      <Link to="/Map">Map</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Bar
+export default Bar;

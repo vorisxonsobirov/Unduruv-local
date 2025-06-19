@@ -8,14 +8,11 @@ import CoordinatesScreen from './components/Map/CoordinatesScreen.jsx';
 import AuthPage from './components/Auth/AuthPage.jsx';
 import { useState, useEffect } from 'react';
 
-
-
-
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // ← добавили
 
   useEffect(() => {
-    // Проверка: если логин и пароль уже сохранены — вход разрешён
     const storedEmail = localStorage.getItem('email');
     const storedPassword = localStorage.getItem('password');
     if (storedEmail && storedPassword) {
@@ -30,7 +27,13 @@ function App() {
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false); // Просто сбрасываем состояние авторизации
+    setIsAuthenticated(false);
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+  };
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen); // ← переключение
   };
 
   if (!isAuthenticated) {
@@ -39,9 +42,9 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar onLogout={handleLogout} />
+      <Navbar onLogout={handleLogout} toggleSidebar={toggleSidebar} />
       <div className="main-layout">
-        <Bar />
+        <Bar isOpen={sidebarOpen} />
         <div className="page-content">
           <Routes>
             <Route path="/" element={<Profile />} />

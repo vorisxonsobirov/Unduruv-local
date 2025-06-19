@@ -1,19 +1,40 @@
-.Bar a{
-    margin-top: 20px;
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.534);
-    /* font-weight: bold; */
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
+.Bar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease;
+  /* padding-top:70px; */
+
 }
-.Bar a:hover{
-    color: rgb(0, 0, 0);
+
+.Bar a {
+  margin-top: 30px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
 }
-.Bar{
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    /* height: 100vh; */
+
+.Bar a:hover {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .Bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 50;
+    transform: translateX(-100%);
+  padding-top:70px;
+  }
+
+  .Bar.open {
+    transform: translateX(0);
+  }
+
+  .Bar.closed {
+    transform: translateX(-100%);
+  }
 }

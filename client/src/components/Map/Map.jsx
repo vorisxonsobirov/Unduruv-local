@@ -163,6 +163,7 @@ function MapViewer() {
   };
 
   return (
+    
     <div className="map-container">
       {error && <p style={{ color: 'red', position: 'absolute', top: 10, zIndex: 1000 }}>{error}</p>}
       {location ? (
@@ -174,12 +175,7 @@ function MapViewer() {
           }
           zoom={13}
           style={{ height: '80vh', width: '100%' }}
-          whenCreated={(map) => (mapRef.current = map)}
-        // center={[location.latitude, location.longitude]}
-        // zoom={13}
-        // style={{ height: '100%', width: '100%' }}
-        // whenCreated={(map) => (mapRef.current = map)} // ✅ HERE IS FIX
-        >
+          whenCreated={(map) => (mapRef.current = map)}        >
           <TileLayer attribution='© OpenStreetMap' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker position={[location.latitude, location.longitude]} icon={defaultIcon}>
             <Popup>you here</Popup>
@@ -204,5 +200,5 @@ function MapViewer() {
     </div>
   );
 }
-
+  
 export default MapViewer;

@@ -1,7 +1,16 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  background: #1f2937;
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+
+}
 
 .logout-btn {
   margin-left: auto;
-  margin-right: 20px;
   padding: 6px 12px;
   font-size: 14px;
   background-color: #f44336;
@@ -9,9 +18,29 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .logout-btn:hover {
   background-color: #d32f2f;
+}
+
+.menu-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+  .mxsoft{
+    display: none;
+  }
+  .Navbar {
+    z-index: 100;
+  }
 }
