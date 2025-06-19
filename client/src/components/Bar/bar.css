@@ -1,44 +1,4 @@
-.Bar {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-  background-color: #f8f9fa;
-  transition: transform 0.3s ease;
-  /* padding-top:70px; */
-
-}
-
-.Bar a {
-  margin-top: 30px;
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.7);
-  text-decoration: none;
-}
-
-.Bar a:hover {
-  color: black;
-}
-
-@media screen and (max-width: 768px) {
-  .Bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 50;
-    transform: translateX(-100%);
-  padding-top:70px;
-  }
-
-  .Bar.open {
-    transform: translateX(0);
-  }
-
-  .Bar.closed {
-    transform: translateX(-100%);
-  }
-}
-/* Базовые стили */
+/* Общие стили для бара */
 .Bar {
   position: fixed;
   top: 0;
@@ -46,7 +6,7 @@
   height: 100vh;
   width: 250px;
   background-color: white;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 999;
@@ -56,22 +16,34 @@
   gap: 15px;
 }
 
-/* Показываем бар, если открыт */
+/* Ссылки */
+.Bar a {
+  margin-top: 20px;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.Bar a:hover {
+  color: black;
+}
+
+/* Если бар открыт — показываем */
 .Bar.open {
   transform: translateX(0);
 }
 
-/* На больших экранах — показываем всегда */
+/* --- Десктопная версия --- */
 @media (min-width: 768px) {
   .Bar {
-    position: static;
-    transform: translateX(0) !important;
-    height: auto;
-    box-shadow: none;
+    position: relative;
+    transform: none !important;
+    height: 100vh;
+    width: 250px; /* Увеличил ширину */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 50;
     flex-direction: column;
-    width: 200px;
-    z-index: 1;
+
   }
 }
-
-
