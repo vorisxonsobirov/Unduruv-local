@@ -92,3 +92,18 @@
     font-size: 16px;
   }
 }
+.button-focus {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  /* font-weight: bold; */
+  transition: background 0.3s;
+}
+
+.button-focus:hover {
+  background-color: #218838;
+}

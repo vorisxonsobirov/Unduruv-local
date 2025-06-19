@@ -440,6 +440,10 @@ h1 {
     font-size: 8px !important;   /* Ещё меньше на узких экранах */
     padding: 4px;
   }
+  .debtors-table th {
+    font-size: 11px !important;   /* Ещё меньше на узких экранах */
+    padding: 4px;
+  }
 
   .title {
     font-size: 8px;

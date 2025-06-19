@@ -149,6 +149,11 @@ function MapViewer() {
       });
     }
   };
+  const focusOnLocation = () => {
+    if (mapRef.current && location) {
+      mapRef.current.setView([location.latitude, location.longitude], 16); // плавный переход
+    }
+  };
 
   const clearLogTable = (e) => {
     e.preventDefault();
@@ -163,7 +168,7 @@ function MapViewer() {
   };
 
   return (
-    
+
     <div className="map-container">
       {error && <p style={{ color: 'red', position: 'absolute', top: 10, zIndex: 1000 }}>{error}</p>}
       {location ? (
@@ -195,10 +200,11 @@ function MapViewer() {
       <div className="button-container">
         <button className="button" onClick={addManualMarker}>Put a mark</button>
         <button className="button button-history" onClick={viewCoordinates}>Show coordinates</button>
+        <button className="button button-focus" onClick={focusOnLocation}>My location</button>
         <button className="button button-clear" onClick={clearLogTable}>Cleare coordinates</button>
       </div>
     </div>
   );
 }
-  
+
 export default MapViewer;
