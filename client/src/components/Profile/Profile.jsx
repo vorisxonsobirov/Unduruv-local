@@ -12,17 +12,37 @@
 
     const itemsPerPage = 10;
 
+// useEffect(() => {
+//   const fetchDebtors = async () => {
+//     try {
+//       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/debtors`);
+
+//       if (!response.ok) {
+//         throw new Error(`Error: ${response.status}`);
+//       }
+
+//       const data = await response.json();
+//       setDebtors(data.response.Clients);
+//     } catch (error) {
+//       console.error("Fetch error:", error);
+//       setError(error.message);
+//     }
+//   };
+
+//   fetchDebtors();
+// }, []);
+
 useEffect(() => {
   const fetchDebtors = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/debtors`);
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-
+      if (!response.ok) throw new Error(`Error: ${response.status}`);
+      
       const data = await response.json();
-      setDebtors(data.response.Clients);
+
+      // Собираем всех клиентов со всех филиалов в один массив
+      const allClients = data.response.flatMap(branch => branch.Clients || []);
+      setDebtors(allClients);
     } catch (error) {
       console.error("Fetch error:", error);
       setError(error.message);
@@ -31,7 +51,6 @@ useEffect(() => {
 
   fetchDebtors();
 }, []);
-
 
 
     const handleRowClick = (debtor) => {
