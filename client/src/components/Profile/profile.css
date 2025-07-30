@@ -317,6 +317,10 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.debt-red {
+  color: rgba(255, 0, 0, 0.712);
+  font-weight: bold;
+}
 
 .pagination-buttons button {
   padding: 6px 12px;
