@@ -1,12 +1,17 @@
-  // components/ClientDetails.jsx
+import React, { useState } from "react";
+import "./kontragent.css";
 
-  import React from "react";
-  import "./kontragent.css";
+const ClientDetails = ({ debtor, onClose }) => {
+  const [agentInfo, setAgentInfo] = useState(null);
 
-  const ClientDetails = ({ debtor, onClose }) => {
-    if (!debtor) return null;
+  if (!debtor) return null;
 
-    return (
+  const handleAgentInfo = (info) => {
+    setAgentInfo(info);
+  };
+
+  return (
+    <>
       <div className="client-modal-overlay" onClick={onClose}>
         <div className="client-modal" onClick={(e) => e.stopPropagation()}>
           <h2>
@@ -26,12 +31,36 @@
               <p><strong>Contract amount:</strong> {contract.contract_summary.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               <p><strong>Monthly payment:</strong> {contract.mounthly_payment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               <p><strong>Agent:</strong> {contract.agent}</p>
+
+              {/* {contract.agent_info && (
+                <button
+                  className="agent-info-btn"
+                  onClick={() => handleAgentInfo(contract.agent_info)}
+                >
+                  Инфо о агенте
+                </button>
+              )} */}
             </div>
           ))}
           <button className="client-close-btn" onClick={onClose}>Close</button>
         </div>
       </div>
-    );
-  };
 
-  export default ClientDetails;
+      {/* Модалка с инфой об агенте */}
+      {agentInfo && (
+        <div className="client-modal-overlay" onClick={() => setAgentInfo(null)}>
+          <div className="client-modal" onClick={(e) => e.stopPropagation()}>
+            <h2>Информация об агенте</h2>
+            <p><strong>Имя:</strong> {agentInfo.name}</p>
+            <p><strong>Телефон:</strong> {agentInfo.phone}</p>
+            <p><strong>Регион:</strong> {agentInfo.region}</p>
+            <p><strong>Стаж:</strong> {agentInfo.experience}</p>
+            <button className="client-close-btn" onClick={() => setAgentInfo(null)}>Закрыть</button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ClientDetails;

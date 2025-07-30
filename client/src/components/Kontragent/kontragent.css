@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ font-family: "Inter", sans-serif;
+}
 .client-modal-overlay {
   position: fixed;
   top: 0;
@@ -35,7 +42,7 @@
   padding: 12px;
   margin: 12px 0;
   border-radius: 8px;
-  border-left: 4px solid #007bff;
+  border-left: 5px solid #007bff;
 }
 
 .client-contract p {
@@ -47,6 +54,7 @@
   color: white;
   border: none;
   padding: 12px 18px;
+  font-weight: 200;
   font-size: 16px;
   border-radius: 10px;
   margin-top: 20px;

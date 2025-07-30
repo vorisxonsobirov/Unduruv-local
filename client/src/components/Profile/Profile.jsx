@@ -152,9 +152,9 @@ useEffect(() => {
               <h3>
                 {selectedDebtor.first_name} {selectedDebtor.last_name}
               </h3>
-              <p><strong>PINFL:</strong> {selectedDebtor.pinfl}</p>
-              <p><strong>Passport:</strong> {selectedDebtor.passport_seria} {selectedDebtor.passport_number}</p>
-              <p><strong>Phone:</strong> {selectedDebtor.phone}</p>
+              <p>PINFL: {selectedDebtor.pinfl}</p>
+              <p>Passport: {selectedDebtor.passport_seria} {selectedDebtor.passport_number}</p>
+              <p>Phone: {selectedDebtor.phone}</p>
               <h4>Contracts:</h4>
               <ClientDetails debtor={selectedDebtor} onClose={closeModal} />
               <button onClick={closeModal} className="close-button">Close</button>
